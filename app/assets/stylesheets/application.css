@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+
+.navbar-fixed-top .container {
+    background-color: gray;
+    color:white;
+    font-size:18px;
+    padding:20px;
+}
+
+.navbar-fixed-top .container a{
+     color: white;
+     text-decoration: none;
+     font-weight: 900;
+}
