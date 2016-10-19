@@ -1,0 +1,28 @@
+<h1>Users#show</h1>
+
+<%= @todos.length %> 件
+<table>
+    <tr>
+        <th>id </th>
+        <th>user_id</th>
+        <th>title</th>
+        <th>text</th>
+        <th>is notify</th>
+        <th>is memo </th>
+        <th>lookup time</th>
+        <th>notify time</th>
+        <th>todo time</th>
+    </tr>
+    <% for todo in @todos do  %>
+    <tr>
+        <td> <%= todo.id %></td>
+        <td> <%= todo.user_id %></td>
+        <td> <%= todo.titleStr %></td>
+        <td> <%= todo.todoText %></td>
+        <td> <%= todo.IsNotify %></td>
+        <td> <%= todo.IsMemo %></td>
+        <td> <%= todo.lookUpTimeStr %></td>
+        <td> <%= todo.notificationTimeStr %></td>
+        <td> <%= todo.todoTimeStr %></td>
+    </tr>
+    <% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  data_id: 1
+  titleStr: MyText
+  todoText: MyText
+  IsNotify: 1
+  IsMemo: 1
+  todoTimeStr: MyText
+  lookUpTimeStr: MyText
+  notificationTimeStr: MyText
+
+two:
+  user_id: 1
+  data_id: 1
+  titleStr: MyText
+  todoText: MyText
+  IsNotify: 1
+  IsMemo: 1
+  todoTimeStr: MyText
+  lookUpTimeStr: MyText
+  notificationTimeStr: MyText
