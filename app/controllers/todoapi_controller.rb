@@ -1,5 +1,5 @@
 class TodoapiController < ApplicationController
-    protect_from_forgery :except => [:create] # CSRFエラー防ぐためにCSRFをoff に
+    protect_from_forgery :except => [:create ,:show] # CSRFエラー防ぐためにCSRFをoff に
     def index
     end
           
