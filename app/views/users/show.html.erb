@@ -12,6 +12,8 @@
         <th>lookup time</th>
         <th>notify time</th>
         <th>todo time</th>
+        <th> update </th>
+        <th>manipulate</th>
     </tr>
     <% for todo in @todos do  %>
     <tr>
@@ -24,5 +26,7 @@
         <td> <%= todo.lookUpTimeStr %></td>
         <td> <%= todo.notificationTimeStr %></td>
         <td> <%= todo.todoTimeStr %></td>
+        <td> <%= todo.updated_at%> </td>
+        <td> <%= link_to "delete", "/users/" + (todo.id.to_s) , method: :delete, data: { confirm: "削除しますか？" } %> </td>
     </tr>
     <% end %>
