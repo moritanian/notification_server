@@ -1,6 +1,10 @@
 <h1>Users#show</h1>
 
 <%= @todos.length %> 件
+<% if @todos.length > 0 %>
+    <%= link_to "all delete", "/users/" + (@todos.first.user_id.to_s) , method: :delete, data: { confirm: "削除しますか？" } %>
+<% end %> 
+
 <table>
     <tr>
         <th>id </th>
@@ -27,6 +31,6 @@
         <td> <%= todo.notificationTimeStr %></td>
         <td> <%= todo.todoTimeStr %></td>
         <td> <%= todo.updated_at%> </td>
-        <td> <%= link_to "delete", "/users/" + (todo.id.to_s) , method: :delete, data: { confirm: "削除しますか？" } %> </td>
+        <td> <%= link_to "delete", "/users/todo/" + (todo.id.to_s) , method: :delete, data: { confirm: "削除しますか？" } %> </td>
     </tr>
     <% end %>

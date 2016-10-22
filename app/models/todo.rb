@@ -18,4 +18,21 @@ class Todo < ApplicationRecord
                             todoTimeStr: @todoTimeStr)
         end
     end
+    
+    def Todo.serialize(todo_list)
+        @result = []
+        for @todo_data in todo_list do
+            @ret = {}
+            @ret['user_id'] = @todo_data['user_id']
+            @ret['titleStr'] = CGI.escape( @todo_data['titleStr'])
+            @ret['todoText'] = CGI.escape(@todo_data['titleStr'])
+            @ret['IsNotify'] = @todo_data['IsMemo'] == 1 ? true : false
+            @ret['IsMemo'] = @todo_data['IsMemo'] == 1 ? true : false
+            @ret['lookUpTimeStr'] = @todo_data['lookUpTimeStr']
+            @ret['notificationTimeStr'] = @todo_data['notificationTimeStr']
+            @ret['todoTimeStr'] = @todo_data['todoTimeStr']
+            @result.push(@ret)
+        end
+        return @result
+    end
 end

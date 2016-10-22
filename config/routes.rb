@@ -7,11 +7,15 @@ Rails.application.routes.draw do
   #end
   get 'users/new'
 
-  get 'users/show'
+  get 'users/showall'
 
   get 'users/update'
   
-  delete 'users/:id' => 'users#destroy'
+  get 'users/:user_id', to: 'users#show'
+  
+  delete 'users/:user_id' => 'users#deleteall'
+  
+  delete 'users/todo/:id' => 'users#destroy'
   
  # resources :users
   
