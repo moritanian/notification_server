@@ -1,4 +1,5 @@
 #module API::V1
+module V1
     class Todog < Grape::API
       format 'json'
     
@@ -9,4 +10,5 @@
         end
       end
     end
+end
 #end
