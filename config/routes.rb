@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   
   delete 'users/todo/:id' => 'users#destroy'
   
- # resources :users
+  resources :users do
+    resources :todos
+  end
   
   get '/api/v1/user/:user_id', to: 'todoapi#show'
   
@@ -25,3 +27,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.
   root  "home#index"
 end
+
+# users/1/todos         : todos by user
+# users/todos          : admin todos all user
+# users/1/todos/delete  : delete todos by user
+# users/1/todos/2/delete
+# users/todos/delete    : all delete

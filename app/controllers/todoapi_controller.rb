@@ -19,4 +19,20 @@ class TodoapiController < ApplicationController
         render json: Todo.serialize(@todos) 
     end
     
+    # アプリでユーザ登録
+    def create_user
+        @user = User.new(user_params)
+        @ret = {'result' => false}
+        if(@user.save)
+            @ret['result'] = true;
+        end
+        render json: @ret
+    end
+    
+    private
+  
+        def user_params
+            params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        end
+    
 end

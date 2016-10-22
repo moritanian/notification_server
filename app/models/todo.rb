@@ -1,4 +1,6 @@
 class Todo < ApplicationRecord
+    belongs_to :user 
+    
     def Todo.createByJson(json)
         @data = JSON.parse(json)
         p "this is a "
