@@ -1,3 +1,4 @@
+#require 'api_contraints'
 Rails.application.routes.draw do
     
   #namespace :api, format: 'json' do
@@ -10,13 +11,15 @@ Rails.application.routes.draw do
     resources :todos
   end
   
-  delete '/users/:user_id/todos/', to: 'todos#delete_all'
+  # delete '/users/:user_id/todos/', to: 'todos#delete_all'
   
-  get '/api/v1/user/:user_id', to: 'todoapi#show'
+  # get '/api/v1/user/:user_id', to: 'todoapi#show'
   
-  post '/api/v1/user/:user_id/todo/create', to: 'todoapi#create'
+  # post '/api/v1/user/:user_id/todo/create', to: 'todoapi#create'
   
-  post '/api/v1/user/create', to: 'todoapi#create_user'
+  # post '/api/v1/user/create', to: 'todoapi#create_user'
+  
+  mount Root => '/'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.
   root  "home#index"
