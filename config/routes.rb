@@ -5,25 +5,19 @@ Rails.application.routes.draw do
   #    resources :user
   #  end
   #end
-  get 'users/new'
-
-  get 'users/showall'
-
-  get 'users/update'
-  
-  get 'users/:user_id', to: 'users#show'
-  
-  delete 'users/:user_id' => 'users#deleteall'
-  
-  delete 'users/todo/:id' => 'users#destroy'
   
   resources :users do
     resources :todos
   end
   
+  delete '/users/:user_id/todos/', to: 'todos#delete_all'
+  
   get '/api/v1/user/:user_id', to: 'todoapi#show'
   
-  post '/api/v1/user', to: 'todoapi#create'
+  post '/api/v1/user/:user_id/todo/create', to: 'todoapi#create'
+  
+  post '/api/v1/user/create', to: 'todoapi#create_user'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.
   root  "home#index"
 end

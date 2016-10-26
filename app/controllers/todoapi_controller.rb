@@ -1,12 +1,10 @@
 class TodoapiController < ApplicationController
-    protect_from_forgery :except => [:create ,:show] # CSRFエラー防ぐためにCSRFをoff に
+    protect_from_forgery :except => [:create ,:show, :create_user] # CSRFエラー防ぐためにCSRFをoff に
     def index
     end
           
     def create
-        @data = params[:data]
-        #p @data
-        Todo.createByJson(@data)
+        Todo.createByJson(request.body.read)
     end
             
     def show 
@@ -21,18 +19,23 @@ class TodoapiController < ApplicationController
     
     # アプリでユーザ登録
     def create_user
-        @user = User.new(user_params)
-        @ret = {'result' => false}
+        @data = JSON.parse(request.body.read)
+        @user_data = {}
+        @user_data[:name] = @data['name']
+        @user_data[:password] = @data['password']
+        @user_data[:password_confirmation] = @data['password_confirmation']
+        @user = User.new(@user_data)
+        @ret = {id: 0}
         if(@user.save)
-            @ret['result'] = true;
+            @ret[:id] = @user[:id]
         end
         render json: @ret
     end
     
     private
   
-        def user_params
-            params.require(:user).permit(:name, :email, :password, :password_confirmation)
-        end
+       # def user_params
+    #        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+     #   end
     
 end

@@ -5,6 +5,7 @@
     <tr>
         <th>id </th>
         <th>user_id</th>
+        <th> todo_id</th>
         <th>title</th>
         <th>text</th>
         <th>is notify</th>
@@ -19,14 +20,15 @@
     <tr>
         <td> <%= todo.id %></td>
         <td> <%= todo.user_id %></td>
+        <td> <%= todo.todo_id %></td>
         <td> <%= todo.titleStr %></td>
         <td> <%= todo.todoText %></td>
         <td> <%= todo.IsNotify %></td>
         <td> <%= todo.IsMemo %></td>
-        <td> <%= todo.lookUpTimeStr %></td>
+        <td> <%= todo.lookupTimeStr %></td>
         <td> <%= todo.notificationTimeStr %></td>
         <td> <%= todo.todoTimeStr %></td>
         <td> <%= todo.updated_at%> </td>
-        <td> <%= link_to "delete", "/users/todo/" + (todo.id.to_s) , method: :delete, data: { confirm: "削除しますか？" } %> </td>
+        <td> <%= link_to "delete", "/users/" + (todo.user_id.to_s) + "/todos/" + (todo.id.to_s) , method: :delete, data: { confirm: "削除しますか？" } %> </td>
     </tr>
     <% end %>

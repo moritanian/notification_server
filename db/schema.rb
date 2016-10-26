@@ -10,20 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018011214) do
+ActiveRecord::Schema.define(version: 20161022041554) do
 
   create_table "todos", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "data_id"
+    t.integer  "todo_id"
     t.text     "titleStr"
     t.text     "todoText"
     t.integer  "IsNotify"
     t.integer  "IsMemo"
     t.text     "todoTimeStr"
-    t.text     "lookUpTimeStr"
+    t.text     "lookupTimeStr"
     t.text     "notificationTimeStr"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

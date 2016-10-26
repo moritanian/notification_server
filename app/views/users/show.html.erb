@@ -2,13 +2,14 @@
 
 <%= @todos.length %> 件
 <% if @todos.length > 0 %>
-    <%= link_to "all delete", "/users/" + (@todos.first.user_id.to_s) , method: :delete, data: { confirm: "削除しますか？" } %>
+    <%= link_to "all delete", "/users/" + @todos.first.user_id.to_s + "/todos/", method: :delete, data: { confirm: "削除しますか？" } %>
 <% end %> 
 
 <table>
     <tr>
         <th>id </th>
         <th>user_id</th>
+        <th>todo_id</th>
         <th>title</th>
         <th>text</th>
         <th>is notify</th>
@@ -23,11 +24,12 @@
     <tr>
         <td> <%= todo.id %></td>
         <td> <%= todo.user_id %></td>
+        <td> <%= todo.todo_id %></td>
         <td> <%= todo.titleStr %></td>
         <td> <%= todo.todoText %></td>
         <td> <%= todo.IsNotify %></td>
         <td> <%= todo.IsMemo %></td>
-        <td> <%= todo.lookUpTimeStr %></td>
+        <td> <%= todo.lookupTimeStr %></td>
         <td> <%= todo.notificationTimeStr %></td>
         <td> <%= todo.todoTimeStr %></td>
         <td> <%= todo.updated_at%> </td>
