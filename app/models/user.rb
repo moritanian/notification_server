@@ -8,4 +8,9 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)
     end
+
+    # Returns true if the given token matches the digest.
+    def authenticated?(password)
+        BCrypt::Password.new(password_digest).is_password?(password)
+    end
 end
