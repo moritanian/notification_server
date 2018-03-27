@@ -1,0 +1,15 @@
+User
+<table>
+    <tr>
+        <th>user_id</th>
+        <th>user name</th>
+        <th> delete </th>
+    </tr>
+    <% for user in @users do  %>
+    <tr>
+        <td> <%= user.id %></td>
+        <td> <%= user.name %></td>
+        <td> <%= link_to "delete", "/users/" + (user.id.to_s)  , method: :delete, data: { confirm: "削除しますか？" } %> </td>
+    </tr>
+    <% end %>
+</table>

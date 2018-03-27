@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show 
     @user_id = params[:id]
     @todos = Todo.where(user_id: @user_id)
+    @users = [User.find(@user_id)]
   end
 
   def update
